@@ -13,13 +13,14 @@ class ClickError extends ClickState {
 
 class Click extends ClickState {
   int count;
-  String theme;
-
-  Click(this.count, this.theme);
+  List<String> history;
+  Click(this.count, this.history);
 }
 
+class SwitchInitial extends ClickState {}
+
 class SwitchState {
-  bool isDarkThemeOff = false;
+  bool isDarkThemeOff;
   ThemeData theme = ThemeData(brightness: Brightness.dark);
   SwitchState({required this.isDarkThemeOff}) {
     if (isDarkThemeOff) {
